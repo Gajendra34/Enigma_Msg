@@ -44,7 +44,8 @@ export async function POST(request: Request) {
                 );
             } else {
                 // const salt=10;
-                const hashedPassword = await bcrypt.hash(password, salt);
+                // const hashedPassword = await bcrypt.hash(password, salt);
+                const hashedPassword = password;
                 existingUserByEmail.password = hashedPassword;
                 existingUserByEmail.verifyCode = verifyCode;
                 existingUserByEmail.verifyCodeExpiry = new Date(Date.now() + 3600000);  // 1hr=3600Sec or 3600000miliSec
